@@ -7,11 +7,20 @@
 - Логирование результатов в файл и консоль
 
 Использование:
-git clone https://github.com/ilyakirshanov/ssh-compliance-auditor.git
-cd ssh-auditor
-pip install paramiko pyyaml (или через apt install)
+git clone https://github.com/ilyakirshanov/ssh-compliance-auditor.git \
+cd ssh-auditor \
+pip install paramiko pyyaml (или через apt install) \
 перед запуском нужно вписать свои ip-адреса и пути к закрытым ssh-ключам (id_rsa) в файл config.yaml \
 Генерация ключа:  ssh-keygen -t rsa -b 4096
+
+Пример конфиг-файла:
+servers:
+  - name: ""
+    host: ""
+    port: 
+    username: ""
+    key_filename: ""
+    
 
 Планы по развитию:
 мультипоточность, создание gui
