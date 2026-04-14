@@ -1,0 +1,26 @@
+[
+    {
+        "id": "CIS-5.2.2",
+        "description": "Запрет подключения root по ssh",
+        "command": "sshd -T | grep -i 'permitrootlogin'",
+        "expected": "permitrootlogin no",
+        "severity": "High",
+        "fix_command": "sudo sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config && sudo systemctl restart ssh"
+    },
+    {
+        "id": "CIS-5.2.14",
+        "description": "Запрет авторизации по паролю в SSH",
+        "command": "sshd -T | grep -i 'passwordauthentication'",
+        "expected": "passwordauthentication no",
+        "severity": "High",
+        "fix_command": "sudo sed -i 's/^PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config && sudo systemctl restart ssh"
+    },
+    {
+        "id": "Custom-1",
+        "description": "Проверка статуса UFW (МЭ)",
+        "command": "sudo ufw status",
+        "expected": "Status: active",
+        "severity": "High",
+        "fix_command": "sudo ufw enable"
+    }
+]
