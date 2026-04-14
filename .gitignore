@@ -1,6 +1,3 @@
-# Конфигурация
-config.yaml
-
 # Виртуальное окружение Python
 venv/
 env/
